@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:jkp_sms/provider/Sms.dart';
 import 'package:jkp_sms/screens/message_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +13,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    // initializeDateFormatting();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      print('hello');
+
+      Provider.of<SmsProvider>(context, listen: false).getAllSms();
+    });
+  }
+
   int selectedIndex = 0;
 
   List screens = [
@@ -36,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
-          "Message",
+          "Messages",
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w900,

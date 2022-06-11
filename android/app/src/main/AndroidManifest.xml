@@ -1,11 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jkp_sms">
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+        <uses-permission android:name="android.permission.READ_SMS"/>
+        <uses-permission android:name="android.permission.RECEIVE_SMS"/>
    <application
         android:label="jkp_sms"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <uses-permission android:name="android.permission.SEND_SMS"/>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
