@@ -5,9 +5,9 @@ import 'package:sms_advanced/contact.dart';
 import 'package:sms_advanced/sms_advanced.dart';
 
 class SmsProvider with ChangeNotifier {
-  SmsQuery query = new SmsQuery();
+  SmsQuery query = SmsQuery();
 
-  ContactQuery contacts = new ContactQuery();
+  ContactQuery contacts = ContactQuery();
 
   bool smsLoader = false;
   bool discLoader = false;
@@ -59,9 +59,7 @@ class SmsProvider with ChangeNotifier {
     discLoader = true;
     notifyListeners();
     List specSms = await query.querySms(
-      threadId: threadId,
-      // address: getContact
-    );
+        threadId: threadId, kinds: [SmsQueryKind.Inbox, SmsQueryKind.Sent]);
 
     _discusion = specSms;
 

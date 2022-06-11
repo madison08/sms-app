@@ -31,6 +31,7 @@ class _MessageScreenState extends State<MessageScreen> {
       }
 
       return ListView.builder(
+          physics: BouncingScrollPhysics(),
           itemCount: smsProvider.sms.length,
           itemBuilder: (context, index) {
             // print(smsProvider.sms[index].userInfo.fullName);
