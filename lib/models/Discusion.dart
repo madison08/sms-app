@@ -7,11 +7,14 @@ class Discusion {
   final Contact? contact;
   final List<SmsMessage>? messages;
   final int? threadId;
+  var userInfo;
 
-  Discusion(
-      {required this.id,
-      required this.address,
-      required this.contact,
-      required this.messages,
-      required this.threadId});
+  Discusion({
+    required this.id,
+    required this.address,
+    required this.contact,
+    required this.messages,
+    required this.threadId,
+    required this.userInfo,
+  });
 }

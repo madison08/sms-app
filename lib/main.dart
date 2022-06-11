@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jkp_sms/provider/Sms.dart';
 import 'package:jkp_sms/screens/home_screen.dart';
+import 'package:jkp_sms/screens/single_discussion_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:intl/date_symbol_data_local.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => HomeScreen(),
+          '/discus': (context) => SingleDiscuScreen(),
         },
       ),
     );

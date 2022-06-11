@@ -30,14 +30,25 @@ class _MessageScreenState extends State<MessageScreen> {
         return Center(child: CircularProgressIndicator());
       }
 
-      print(smsProvider.sms);
-
       return ListView.builder(
           itemCount: smsProvider.sms.length,
           itemBuilder: (context, index) {
+            // print(smsProvider.sms[index].userInfo.fullName);
+
             return Card(
               child: ListTile(
-                title: Text(smsProvider.sms[index].address),
+                onTap: () {
+                  print("hello");
+                  Navigator.pushNamed(context, "/discus", arguments: [
+                    smsProvider.sms[index].id,
+                    smsProvider.sms[index].userInfo.fullName != null
+                        ? smsProvider.sms[index].userInfo.fullName
+                        : smsProvider.sms[index].address
+                  ]);
+                },
+                title: Text(smsProvider.sms[index].userInfo.fullName != null
+                    ? smsProvider.sms[index].userInfo.fullName
+                    : smsProvider.sms[index].address),
                 subtitle: Text(
                   smsProvider.sms[index].messages[0].body,
                   overflow: TextOverflow.ellipsis,
